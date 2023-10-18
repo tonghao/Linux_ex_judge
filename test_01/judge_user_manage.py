@@ -31,7 +31,7 @@ def judge_05():
 
 def judge_06():
     # 检查/home/student/grading/review2目录和sgid权限和sticky权限是否正确
-    return os.system('stat /home/student/grading/review2 | grep "(3775/drwxrwsr-x)"') == 0
+    return os.system('stat /home/student/grading/review2 | grep "(3775/drwxrwsr-t)"') == 0
 
     
 judges =[(judge_01, 5), (judge_02, 5), (judge_03, 5), (judge_04, 5), (judge_05, 5), (judge_06, 5)]

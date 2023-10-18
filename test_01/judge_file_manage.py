@@ -52,7 +52,7 @@ def judge_06():
     with open('/home/student/grading/manage-files-copy.txt') as f:
         lines = f.readlines()
         for i in range(len(lines)-1):
-            if lines[i] == lines[i+1] and lines[i] == 'test JJ\n':
+            if lines[i] == lines[i+1] and lines[i] == 'Test JJ\n':
                 return True
     return False
 
