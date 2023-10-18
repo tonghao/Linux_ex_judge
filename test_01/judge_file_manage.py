@@ -45,11 +45,11 @@ def judge_04():
         
 def judge_05():
     # 判断`/home/student/grading/manage-files-copy.txt`文件是否存在
-    return os.path.exists('/home/student/grading/manage-file-copy.txt')        
+    return os.path.exists('/home/student/grading/manage-files-copy.txt')        
 
 def judge_06():
     # 判断`/home/student/grading/manage-files-copy.txt`有连续两行的文本"Test JJ"
-    with open('/home/student/grading/manage-file-copy.txt') as f:
+    with open('/home/student/grading/manage-files-copy.txt') as f:
         lines = f.readlines()
         for i in range(len(lines)-1):
             if lines[i] == lines[i+1] == 'Test JJ\n':
@@ -57,16 +57,16 @@ def judge_06():
     return False
 
 def judge_07():
-    # 判断`/home/student/grading/manage-files-copy.txt`文件中不存在 TestHH 行文本
-    with open('/home/student/grading/manage-file-copy.txt') as f:
+    # 判断`/home/student/grading/manage-files-copy.txt`文件中不存在 Test HH 行文本
+    with open('/home/student/grading/manage-files-copy.txt') as f:
         for line in f:
-            if line == 'TestHH\n':
+            if line == 'Test HH\n':
                 return False
     return True
 
 def judge_08():
    # 判断`/home/student/grading/manage-files-copy.txt`文件中 在 Test BB 行和 Test CC 行之间存在 A 的 新行 
-   with open('/home/student/grading/manage-file-copy.txt') as f:
+   with open('/home/student/grading/manage-files-copy.txt') as f:
        lines = f.readlines()
        for i in range(len(lines)):
            if lines[i] == 'Test BB\n':
@@ -88,8 +88,8 @@ def judge_10():
         os.path.samefile('/home/student/softlink', '/home/student/grading/grade2')
         
 def judge_11():
-    # 判断文件/home/school/grade/longlisting.txt 中,保存的是'ls -l'的信息，包括文件权限、所有者和组所有者、每个文件的大小和修改日期
-    with open('/home/school/grade/longlisting.txt') as f:
+    # 判断文件/home/school/gradeing/longlisting.txt 中,保存的是'ls -l'的信息，包括文件权限、所有者和组所有者、每个文件的大小和修改日期
+    with open('/home/school/grading/longlisting.txt') as f:
         lines = f.readlines()
         for line in lines:
             if len(line.split()) != 9:
