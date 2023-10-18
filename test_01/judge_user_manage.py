@@ -22,8 +22,8 @@ def judge_03():
                 
 
 def judge_04():
-    # 检查  dbuser2 的用户, database组为其辅助组
-    return os.system('id dbuser2') == 0 and os.system('sudo -l -U dbuser2') == 0
+    # 检查  dbuser1 的用户,其为超级用户 
+    return os.system('id dbuser1') == 0 and os.system('sudo -l -U dbuser2') == 0
 
 def judge_05():
     # 检查dbuser1 配置为默认 umask 为007
