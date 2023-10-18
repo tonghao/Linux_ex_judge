@@ -23,7 +23,7 @@ def judge_03():
 
 def judge_04():
     # 检查  dbuser1 的用户,其为超级用户 
-    return os.system('id dbuser1') == 0 and os.system('sudo -l -U dbuser2') == 0
+    return os.system('id dbuser1') == 0 and os.system('sudo -l -U dbuser1') == 0
 
 def judge_05():
     # 检查dbuser1 配置为默认 umask 为007
@@ -31,7 +31,7 @@ def judge_05():
 
 def judge_06():
     # 检查/home/student/grading/review2目录和sgid权限和sticky权限是否正确
-    return os.system('stat /home/student/grading/review2 | grep "Access: (2775/drwxrwsr-x)"') == 0
+    return os.system('stat /home/student/grading/review2 | grep "(3775/drwxrwsr-x)"') == 0
 
     
 judges =[(judge_01, 5), (judge_02, 5), (judge_03, 5), (judge_04, 5), (judge_05, 5), (judge_06, 5)]
