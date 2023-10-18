@@ -95,7 +95,7 @@ def judge_11():
             print(len(line.split()))
             if len(line.split()) != 9:
                 return False
-        return True
+            return True
 
 # 评分标准
 judges =[(judge_01, 5), (judge_02, 5), (judge_03, 5), (judge_04, 5), (judge_05, 5), (judge_06, 5), (judge_07, 5), (judge_08, 5), (judge_09, 5), (judge_10, 5), (judge_11, 5) ]     
