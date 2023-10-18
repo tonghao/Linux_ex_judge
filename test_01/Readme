@@ -1,5 +1,11 @@
 # 文件和用户管理检查 
 
+## 安装
+该项目需要在python3下运行，如果系统未安装python3，请首先安装python3
+```bash
+sudo yum install python3
+```
+
 ## 文件
 运行以下指令
 ```bash
