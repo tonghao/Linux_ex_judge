@@ -89,7 +89,7 @@ def judge_10():
         
 def judge_11():
     # 判断文件/home/school/gradeing/longlisting.txt 中,保存的是'ls -l'的信息，包括文件权限、所有者和组所有者、每个文件的大小和修改日期
-    with open('/home/school/grading/longlisting.txt') as f:
+    with open('/home/student/grading/longlisting.txt') as f:
         lines = f.readlines()
         for line in lines:
             if len(line.split()) != 9:
