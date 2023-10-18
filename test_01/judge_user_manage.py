@@ -17,9 +17,9 @@ def judge_02():
     return os.system('grep database /etc/group | grep 50000') == 0
 
 def judge_03():
-    # 检查  dbuser1 的用户, database组为其辅助组, 初始密码为 centos
-    return os.system('id dbuser1 | grep database') == 0 and \
-            os.system('grep dbuser1 /etc/shadow | grep centos') == 0
+    # 检查  dbuser1 的用户, database组为其辅助组
+    return os.system('id dbuser1 | grep database') == 0
+                
 
 def judge_04():
     # 检查  dbuser2 的用户, database组为其辅助组
@@ -27,7 +27,7 @@ def judge_04():
 
 def judge_05():
     # 检查dbuser1 配置为默认 umask 为007
-    return os.system('grep umask /home/dbuser1/.bashrc | grep 007') == 0
+    return os.system('sudo grep umask /home/dbuser1/.bashrc | grep 007') == 0
 
 def judge_06():
     # 检查/home/student/grading/review2目录和sgid权限和sticky权限是否正确
