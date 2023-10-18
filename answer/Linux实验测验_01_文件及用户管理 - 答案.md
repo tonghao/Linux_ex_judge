@@ -43,8 +43,6 @@ yyp
 
 练习 07 - 编辑文件 /home/student/grading/manage-files-copy.txt，以便文件中不存在 Test HH 行文本。
 
-
-
 练习 08 - 编辑文件 /home/student/grading/manage-files-copy.txt，以便在 Test BB 行和 Test CC 行之间存在 A 的 新行。
 
 ```
@@ -57,7 +55,7 @@ A
 练习 09 - 创建一个名为 `/home/student/hardlink` 到文件 `/home/student/grading/grade1` 的硬链接。
 
 ```
-ln /home/student/grading/grade1 /home/student/hardlink 
+ln /home/student/grading/grade1 /home/student/hardlink
 ```
 
 练习 10 - 创建一个名为 `/home/student/softlink` 到文件 `/home/student/grading/grade2` 的软链接
@@ -71,8 +69,6 @@ ln -s /home/student/grading/grade2 /home/student/softlink
 ```
 ls -l /boot >  /home/student/grading/longlisting
 ```
-
-
 
 ### 用户管理
 
@@ -122,4 +118,3 @@ chmod g+s /home/student/grading/review2
 chmod 775 /home/student/grading/review2
 chmod o+t /home/student/grading/review2
 ```
-
