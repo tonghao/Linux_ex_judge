@@ -1,0 +1,13 @@
+# 文件和用户管理检查 
+
+## 文件
+运行以下指令
+```bash
+python3 judge_file_manage.py
+```
+
+## 用户
+运行以下指令
+```bash
+python3 judge_user_manage.py
+```
