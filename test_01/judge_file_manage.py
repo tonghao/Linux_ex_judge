@@ -92,7 +92,6 @@ def judge_11():
     with open('/home/student/grading/longlisting.txt') as f:
         lines = f.readlines()
         for line in lines[1:]:
-            print(len(line.split()))
             if len(line.split()) != 9:
                 return False
         return True
