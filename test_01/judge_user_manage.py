@@ -4,8 +4,11 @@
 
 
 import os
+import sys
 
-from judge_utils import judge, judge_all
+sys.path.append(os.path.abspath('__file__'))
+
+from judge_utils import judge_all
 
 
 def judge_01():
