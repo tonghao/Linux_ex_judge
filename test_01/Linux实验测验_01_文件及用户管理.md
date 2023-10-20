@@ -24,7 +24,7 @@
 
 练习 10 - 创建一个名为 `/home/student/softlink` 到文件 `/home/student/grading/grade2` 的软链接
 
-练习 11 - 列出/boot 目录内容，并将输输出保存到文件/home/school/grading/longlisting.txt 中。输出应该是一个“长列表”，其中包括文件权限、所有者和组所有者、每个文件的大小和修改日期。
+练习 11 - 列出/boot 目录内容，并将输输出保存到文件/home/student/grading/longlisting.txt 中。输出应该是一个“长列表”，其中包括文件权限、所有者和组所有者、每个文件的大小和修改日期。
 
 ### 用户管理
 
