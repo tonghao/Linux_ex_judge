@@ -51,28 +51,31 @@ comments = ['检查/mnt/sdb1中挂载的分区是否正确',
 
 # 限制用户的磁盘配额
 
-# 判断是否开启了磁盘配额
-def judge_04():
-    return os.system('sudo quotaon -pa') == 0
+
 
 # 判断是否对/mnt/sdb1目录开启了磁盘配额
 def judge_05():
-    return os.system('sudo quotaon -pa | grep "/mnt/sdb1"') == 0
+    return os.system('sudo quotaon -pa | grep "/mnt/sdb1" ') == 0
 
 # 判断用户market01的磁盘配额是否设置了配额
 def judge_06():
-    return os.system('sudo quotaon -pa | grep "market01" ') == 0
+    return os.system('sudo repquota -u /mnt/sdb1 | grep "market01" ') == 0
 
 # 判断组market的磁盘配额是否正确
 def judge_07():
     
-    return os.system('sudo quotaon -pa | grep "market" ') == 0
+    return os.system('sudo xfs_quota -x -c "report -a"| grep "market "') == 0
 
-judges_2 = [(judge_04, 5), (judge_05, 5), (judge_06, 5), (judge_07, 5)]
-comments_2 = ['判断是否开启了磁盘配额',
+# 判断用户market01的磁盘配额是否超过了限制
+def judge_08():
+    return os.system('sudo repquota -u /mnt/sdb1 | grep "market01" | grep "days" ') == 0
+
+judges_2 = [(judge_05, 5), (judge_06, 5), (judge_07, 5)]
+comments_2 = [
             '判断是否对/mnt/sdb1目录开启了磁盘配额',
             '判断用户market01的磁盘配额是否正确',
-            '判断组market的磁盘配额是否正确']
+            '判断组market的磁盘配额是否正确',
+            '判断用户market01的磁盘配额是否超过了限制']
 
 
 
