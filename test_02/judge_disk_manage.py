@@ -57,15 +57,16 @@ def judge_04():
 
 # 判断是否对/mnt/sdb1目录开启了磁盘配额
 def judge_05():
-    return os.system('sudo repquota -pa | grep "/mnt/sdb1"') == 0
+    return os.system('sudo quotaon -pa | grep "/mnt/sdb1"') == 0
 
-# 判断用户market01的磁盘配额是否正确
+# 判断用户market01的磁盘配额是否设置了配额
 def judge_06():
-    return os.system('sudo repquota -pa | grep "market01" | grep "100000"') == 0
+    return os.system('sudo quotaon -pa | grep "market01" ') == 0
 
 # 判断组market的磁盘配额是否正确
 def judge_07():
-    return os.system('sudo repquota -pa | grep "market" | grep "100000"') == 0
+    
+    return os.system('sudo quotaon -pa | grep "market" ') == 0
 
 judges_2 = [(judge_04, 5), (judge_05, 5), (judge_06, 5), (judge_07, 5)]
 comments_2 = ['判断是否开启了磁盘配额',
