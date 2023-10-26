@@ -33,7 +33,7 @@ def judge_auto_mount(mount_path):
             
 # 判断路径中是否是xfs文件系统
 def judge_xfs(mount_path):
-    return os.system('df -T | grep "{}" | grep "xfs"'.format(mouth_path)) == 0 
+    return os.system('df -T | grep "{}" | grep "xfs"'.format(mount_path)) == 0 
 
 judges = [(judge_args(judge_mount,'/mnt/sdb1'), 5),
           (judge_args(judge_mount,'/mnt/sdb2'), 5),
