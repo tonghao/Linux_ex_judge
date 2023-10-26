@@ -6,9 +6,18 @@
 import os
 import sys
 
-sys.path.append(os.path.abspath('__file__'))
+# 导入上级目录的lib库中的judge_all函数
+# 获取当前脚本的文件路径
+current_file = os.path.abspath(__file__)
 
-from judge_utils import judge_all
+# 获取当前脚本的父目录路径
+current_dir = os.path.dirname(current_file)
+
+# 将父目录添加到系统路径
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
+
+from lib import judge_all
 
 
 def judge_01():
