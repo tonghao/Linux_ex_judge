@@ -16,26 +16,37 @@ from lib import judge_all
 
 # 磁盘分区管理
 
-# 判断/mnt/sdb1,/mnt/sdb2中挂载的分区是否正确
-def judge_01():
-    return os.system('mount | grep "/mnt/sdb1"') == 0 and \
-            os.system('mount | grep "/mnt/sdb2"') == 0
-            
-# 判断/mnt/sdb1,/mnt/sdb2中是否开机自动挂载
-def judge_02():
-    return os.system('grep "/mnt/sdb1" /etc/fstab') == 0 and \
-            os.system('grep "/mnt/sdb2" /etc/fstab') == 0
-            
-# 判断/mnt/sdb1,/mnt/sdb2中是否是xfs文件系统
-def judge_03():
-    return os.system('df -T | grep "/mnt/sdb1" | grep "xfs"') == 0 and \
-            os.system('df -T | grep "/mnt/sdb2" | grep "xfs"') == 0
-            
 
-judges = [(judge_01, 5), (judge_02, 5), (judge_03, 5)]
-comments = ['检查/mnt/sdb1,/mnt/sdb2中挂载的分区是否正确',
-            '判断/mnt/sdb1,/mnt/sdb2中是否开机自动挂载',
-            '判断/mnt/sdb1,/mnt/sdb2中是否是xfs文件系统']
+def judge_args(judge, *args):
+    def _judge():
+        return judge(*args)
+    return _judge
+
+# 判断路径中是否是挂载的分区
+def judge_mount(mount_path):
+    return os.system('mount | grep {}'.format(mount_path)) == 0 
+            
+        
+# 判断路径中是否是开机自动挂载
+def judge_auto_mount(mount_path):
+    return os.system('grep "{}" /etc/fstab'.format(mount_path)) == 0
+            
+# 判断路径中是否是xfs文件系统
+def judge_xfs(mount_path):
+    return os.system('df -T | grep "{}" | grep "xfs"'.format(mouth_path)) == 0 
+
+judges = [(judge_args(judge_mount,'/mnt/sdb1'), 5),
+          (judge_args(judge_mount,'/mnt/sdb2'), 5),
+          (judge_args(judge_auto_mount,'/mnt/sdb1'), 5), 
+          (judge_args(judge_auto_mount,'/mnt/sdb2'), 5),
+          (judge_args(judge_xfs,'/mnt/sdb1'), 5), 
+          (judge_args(judge_xfs,'/mnt/sdb2'), 5)]
+comments = ['检查/mnt/sdb1中挂载的分区是否正确',
+            '检查/mnt/sdb2中挂载的分区是否正确',
+            '判断/mnt/sdb1,中是否开机自动挂载',
+            '判断/mnt/sdb2中是否开机自动挂载',
+            '判断/mnt/sdb1中是否是xfs文件系统',
+            '判断//mnt/sdb2中是否是xfs文件系统']
 
 
 # 限制用户的磁盘配额
